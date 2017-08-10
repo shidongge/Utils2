@@ -1,0 +1,2 @@
+include ':app', ':ceshi', ':erjiliandong', ':rxjavaandretrofit', ':mylrucache'
+include ':ViewPagerIndicator'
