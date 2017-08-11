@@ -19,7 +19,7 @@
             <ImageView
                 android:id="@+id/ll_home_img"
                 style="@style/img"
-                android:src="@mipmap/shouye2"
+                android:src="@mipmap/mainpage_home_pressed_ic"
                 />
             <TextView
                 android:id="@+id/ll_home_tv"
@@ -34,7 +34,7 @@
             <ImageView
                 android:id="@+id/ll_special_img"
                 style="@style/img"
-                android:src="@mipmap/kafei1"
+                android:src="@mipmap/mainpage_topic_nor_ic"
                 />
             <TextView
                 android:id="@+id/ll_special_tv"
@@ -48,7 +48,7 @@
             <ImageView
                 android:id="@+id/ll_branch_img"
                 style="@style/img"
-                android:src="@mipmap/guizi1"
+                android:src="@mipmap/mainpage_category_nor_ic"
                 />
             <TextView
                 android:id="@+id/ll_branch_tv"
@@ -61,7 +61,7 @@
             <ImageView
                 android:id="@+id/ll_shop_img"
                 style="@style/img"
-                android:src="@mipmap/gouwu1"
+                android:src="@mipmap/all_shopping_cart_nor_ic"
                 />
             <TextView
                 android:id="@+id/ll_shop_tv"
@@ -74,7 +74,7 @@
             <ImageView
                 android:id="@+id/ll_mine_img"
                 style="@style/img"
-                android:src="@mipmap/geren1"
+                android:src="@mipmap/mainpage_person_nor_ic"
                 />
             <TextView
                 android:id="@+id/ll_mine_tv"

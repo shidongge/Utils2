@@ -9,11 +9,10 @@
         android:orientation="horizontal"
         >
         <ImageView
-            android:padding="10dp"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:src="@mipmap/back"
+            android:background="@drawable/back"
             android:id="@+id/dingdan_back"
             />
 

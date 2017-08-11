@@ -99,12 +99,12 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         FragmentTransaction ft = fm.beginTransaction();
         switch (v.getId()){
             case R.id.ll_home:
-                home_img.setImageResource(R.mipmap.shouye2);
+                home_img.setImageResource(R.mipmap.mainpage_home_pressed_ic);
                 home_tv.setTextColor(Color.parseColor("#ff0000"));
                 ft.show(homefragment);
                 break;
             case R.id.ll_special:
-                special_img.setImageResource(R.mipmap.kafei2);
+                special_img.setImageResource(R.mipmap.mainpage_topic_pressed_ic);
                 special_tv.setTextColor(Color.parseColor("#ff0000"));
                 if (specialFragment==null){
                     specialFragment = new SpecialFragment();
@@ -114,7 +114,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 }
                 break;
             case R.id.ll_branch:
-                branch_img.setImageResource(R.mipmap.guizi2);
+                branch_img.setImageResource(R.mipmap.mainpage_category_pressed_ic);
                 branch_tv.setTextColor(Color.parseColor("#ff0000"));
                 if (branchFragment==null){
                     branchFragment = new BranchFragment();
@@ -124,7 +124,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 }
                 break;
             case R.id.ll_shop:
-                shop_img.setImageResource(R.mipmap.gouwu2);
+                shop_img.setImageResource(R.mipmap.all_shopping_cart_pressed_ic);
                 shop_tv.setTextColor(Color.parseColor("#ff0000"));
                 if (shopFragment==null){
                     shopFragment = new ShopFragment();
@@ -134,7 +134,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 }
                 break;
             case R.id.ll_mine:
-                mine_img.setImageResource(R.mipmap.geren2);
+                mine_img.setImageResource(R.mipmap.mainpage_person_pressed_ic);
                 mine_tv.setTextColor(Color.parseColor("#ff0000"));
                 if (mineFragment==null){
                     mineFragment = new MineFragment();
@@ -172,11 +172,11 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         special_tv.setTextColor(Color.parseColor("#000000"));
         branch_tv.setTextColor(Color.parseColor("#000000"));
 
-        home_img.setImageResource(R.mipmap.shouye1);
-        mine_img.setImageResource(R.mipmap.geren1);
-        branch_img.setImageResource(R.mipmap.guizi1);
-        shop_img.setImageResource(R.mipmap.gouwu1);
-        special_img.setImageResource(R.mipmap.kafei1);
+        home_img.setImageResource(R.mipmap.mainpage_home_nor_ic);
+        mine_img.setImageResource(R.mipmap.mainpage_person_nor_ic);
+        branch_img.setImageResource(R.mipmap.mainpage_category_nor_ic);
+        shop_img.setImageResource(R.mipmap.all_shopping_cart_nor_ic);
+        special_img.setImageResource(R.mipmap.mainpage_topic_nor_ic);
     }
 
     @Override
