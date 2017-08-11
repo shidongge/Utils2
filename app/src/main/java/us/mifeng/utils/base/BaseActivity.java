@@ -15,6 +15,6 @@ public abstract class BaseActivity extends Activity {
         initView();
         initList();
     }
-    abstract void initView();
-    abstract void initList();
+    protected abstract void initView();
+    protected abstract void initList();
 }

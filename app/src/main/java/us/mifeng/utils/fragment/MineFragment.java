@@ -7,6 +7,7 @@ import android.widget.LinearLayout;
 import us.mifeng.utils.R;
 import us.mifeng.utils.base.BaseFragment;
 import us.mifeng.utils.ui.DingDan;
+import us.mifeng.utils.ui.ShouHou;
 
 /**
  * Created by shido on 2017/6/28.
@@ -67,16 +68,19 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
                 break;
             case R.id.dingdan_yifahuo:
                 Intent intent3 = new Intent(getActivity(),DingDan.class);
-                intent3.putExtra("intent","4");
+                intent3.putExtra("intent","3");
                 startActivity(intent3);
                 break;
             case R.id.dingdan_daipingjia:
                 Intent intent4 = new Intent(getActivity(),DingDan.class);
-                intent4.putExtra("intent","5");
+                intent4.putExtra("intent","4");
                 startActivity(intent4);
                 break;
             case R.id.dingdan_shouhou:
                //跳转待售后界面
+                Intent intent5 =  new Intent(getActivity(),ShouHou.class);
+                intent5.putExtra("tuihuan","售后服务");
+                startActivity(intent5);
                 break;
         }
     }

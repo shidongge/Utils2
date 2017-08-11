@@ -37,6 +37,8 @@
         <activity android:name=".ui.Login2"/>
         <activity android:name=".ui.MipcaActivityCapture"/>
         <activity android:name=".ui.DingDan"/>
+        <activity android:name=".ui.ShouHou"/>
+        <activity android:name=".ui.TuiHuo"/>
     </application>
 
 </manifest>

@@ -9,8 +9,10 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 
 import com.viewpagerindicator.TabPageIndicator;
 
@@ -23,7 +25,7 @@ import us.mifeng.utils.view.MyViewPager;
  * Created by shido on 2017/8/9.
  */
 
-public class DingDan extends FragmentActivity{
+public class DingDan extends FragmentActivity implements View.OnClickListener {
     private static final String TAG = "DingDan";
     private static final String[] TITLE = new String[] { "全部", "待付款", "待发货", "已发货",
             "待评价"};
@@ -31,6 +33,8 @@ public class DingDan extends FragmentActivity{
     private TabPageIndicator tabPageIndicator;
     private String zhuangtai;
     private int integer;
+    private ImageView back;
+    private ImageView sousuo;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,6 +43,7 @@ public class DingDan extends FragmentActivity{
         initView();
         zhuangtai = getIntent().getStringExtra("intent");
         integer = Integer.valueOf(zhuangtai).intValue();
+        viewpager.setCurrentItem(integer);
         //透明状态栏
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             Window window = getWindow();
@@ -57,6 +62,10 @@ public class DingDan extends FragmentActivity{
     private void initView() {
         viewpager = (MyViewPager) findViewById(R.id.dingdan_pager);
         tabPageIndicator = (TabPageIndicator) findViewById(R.id.dingdan_tab);
+        back = (ImageView) findViewById(R.id.dingdan_back);
+        sousuo = (ImageView) findViewById(R.id.dingdan_sousuo);
+        sousuo.setOnClickListener(this);
+        back.setOnClickListener(this);
         FragmentPagerAdapter adapter = new TabPageIndicatorAdapter(getSupportFragmentManager());
         viewpager.setAdapter(adapter);
         tabPageIndicator.setViewPager(viewpager);
@@ -74,7 +83,20 @@ public class DingDan extends FragmentActivity{
 
             }
         });
+
     }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.dingdan_back:
+                finish();
+                break;
+            case R.id.dingdan_sousuo:
+                break;
+        }
+    }
+
     /**
      * 适配器代码
      */
