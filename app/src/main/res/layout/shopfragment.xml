@@ -3,6 +3,167 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
 
+        <TextView
+            android:layout_centerInParent="true"
+            android:textSize="18dp"
+            android:text="购物车"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp" />
+        <TextView
+            android:textSize="16sp"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:visibility="gone"
+            android:text="编辑"
+            />
+
+    </RelativeLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#c0bcbc"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            >
+            <LinearLayout
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:orientation="horizontal"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:src="@mipmap/all_cart_cb_not_checked_enabled"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp" />
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="30天无忧退换货"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:orientation="horizontal"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:src="@mipmap/all_cart_cb_not_checked_enabled"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp" />
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="48小时快速退款"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:orientation="horizontal"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:src="@mipmap/all_cart_cb_not_checked_enabled"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp" />
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="满88包邮"
+                    />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <com.aspsine.swipetoloadlayout.SwipeToLoadLayout
+        android:id="@+id/shop_tianjia"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <us.mifeng.utils.view.RefreshHeaderView
+            android:id="@id/swipe_refresh_header"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center" />
+        <ScrollView
+            android:id="@+id/swipe_target"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+                <LinearLayout
+                    android:background="#f7f3f3"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="250dp">
+                    <ImageView
+                        android:src="@mipmap/cart_empty_ic"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="去添加点什么吧"
+                        />
+                </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="猜你喜欢"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#e4dfdf"
+                    />
+                <us.mifeng.utils.view.MyGridView
+                    android:id="@+id/shop_mGr"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:numColumns="2"
+                    ></us.mifeng.utils.view.MyGridView>
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </com.aspsine.swipetoloadlayout.SwipeToLoadLayout>
+
+
+    
 </LinearLayout>

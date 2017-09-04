@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
+import android.view.ViewStub;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -23,6 +24,8 @@ import us.mifeng.utils.fragment.HomeFragment;
 import us.mifeng.utils.fragment.MineFragment;
 import us.mifeng.utils.fragment.ShopFragment;
 import us.mifeng.utils.fragment.SpecialFragment;
+import us.mifeng.utils.view.anjian.KeyBoardListenerManager;
+import us.mifeng.utils.view.anjian.PhoneSystemManager;
 
 public class MainActivity extends FragmentActivity implements View.OnClickListener {
     private static boolean mBackKeyPressed = false;//记录是否有首次按键
@@ -46,8 +49,29 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         FragmentTransaction ft = fm.beginTransaction();
         ft.add(R.id.ll_shang, homefragment);
         ft.commit();
+        initTouMing();
+
+        initView();
+        doSpecialiSomethingAsVirtualBar();
+    }
 
 
+    private void doSpecialiSomethingAsVirtualBar(){
+
+        KeyBoardListenerManager.newInstance(this).init();
+        if (PhoneSystemManager.AndroidWorkaround.checkDeviceHasNavigationBar(this)) {
+            PhoneSystemManager.AndroidWorkaround.assistActivity(findViewById(android.R.id.content));
+            ViewStub stub = (ViewStub) findViewById(R.id.view_stub);
+            stub.inflate();
+            View enuiStubView = this.findViewById(R.id.enuiNatView);
+            LinearLayout.LayoutParams zLayoutParams = (LinearLayout.LayoutParams) enuiStubView.getLayoutParams();
+            zLayoutParams.height = PhoneSystemManager.AndroidWorkaround.getVirtualBarHeigh(this);
+            enuiStubView.setLayoutParams(zLayoutParams);
+        }
+    }
+
+    private void initTouMing() {
+        //如果手机有虚拟按键 那么不能添加透明状态栏
         //透明状态栏
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             Window window = getWindow();
@@ -59,9 +83,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         //透明状态栏
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         //透明导航栏
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-
-        initView();
+        //getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
     }
 
     private void initView() {
