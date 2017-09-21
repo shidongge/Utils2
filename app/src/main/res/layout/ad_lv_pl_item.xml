@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="100dp">
+    <ImageView
+        android:padding="10dp"
+        android:id="@+id/ad_pl_photo"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+    <LinearLayout
+
+        android:layout_marginLeft="10dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:text="技师"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ad_pl_name"
+                />
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="1dp" />
+            <TextView
+                android:layout_marginRight="5dp"
+                android:text="09-13 14:40"
+                android:layout_gravity="center_vertical"
+                android:id="@+id/ad_pl_shijian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/ic_star_positive"
+                />
+            <ImageView
+                android:layout_marginLeft="2dp"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/ic_star_positive"
+                />
+            <ImageView
+                android:layout_marginLeft="2dp"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/ic_star_positive"
+                />
+            <ImageView
+                android:layout_marginLeft="2dp"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/ic_star_positive"
+                />
+            <ImageView
+                android:layout_marginLeft="2dp"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/ic_star_positive"
+                />
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/ad_pl_pinglun"
+            android:gravity="center_vertical"
+            android:text="非常满意，无可挑剔"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
+    </LinearLayout>
+
+</LinearLayout>

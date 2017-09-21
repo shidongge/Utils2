@@ -12,11 +12,13 @@
         android:layout_height="40dp" />
 
     <LinearLayout
+        android:background="#ddd"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
         <ListView
+            android:gravity="center"
             android:id="@+id/mLv"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -26,17 +28,15 @@
             android:listSelector="@android:color/transparent">
 
         </ListView>
-
-
-        <!--<FrameLayout-->
-        <!--android:id="@+id/frame"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"></FrameLayout>-->
-        <ListView
-            android:id="@+id/right_lv"
+        <View
+            android:layout_width="5dp"
+            android:layout_height="match_parent"/>
+        <GridView
+            android:numColumns="3"
+            android:id="@+id/branch_mGv"
+            android:layout_weight="2"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2"></ListView>
+            android:layout_height="match_parent"></GridView>
 
 
     </LinearLayout>

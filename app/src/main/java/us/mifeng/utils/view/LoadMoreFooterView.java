@@ -22,7 +22,7 @@ public class LoadMoreFooterView extends TextView implements SwipeTrigger, SwipeL
 
     @Override
     public void onLoadMore() {
-        setText("LOADING MORE");
+        setText("正在加载");
     }
 
     @Override
@@ -34,9 +34,9 @@ public class LoadMoreFooterView extends TextView implements SwipeTrigger, SwipeL
     public void onMove(int yScrolled, boolean isComplete, boolean automatic) {
         if (!isComplete) {
             if (yScrolled <= -getHeight()) {
-                setText("RELEASE TO LOAD MORE");
+                setText("释放加载更多 ");
             } else {
-                setText("SWIPE TO LOAD MORE");
+                setText("刷新加载更多");
             }
         } else {
             setText("LOAD MORE RETURNING");
@@ -45,12 +45,12 @@ public class LoadMoreFooterView extends TextView implements SwipeTrigger, SwipeL
 
     @Override
     public void onRelease() {
-        setText("LOADING MORE");
+        setText("正在加载");
     }
 
     @Override
     public void onComplete() {
-        setText("COMPLETE");
+            setText("加载完成");
     }
 
     @Override

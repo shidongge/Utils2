@@ -3,11 +3,12 @@ package us.mifeng.utils.fragment;
 import android.graphics.Color;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -26,7 +27,9 @@ import okhttp3.Response;
 import us.mifeng.utils.R;
 import us.mifeng.utils.adapter.BranchAdapter;
 import us.mifeng.utils.base.BaseFragment;
+import us.mifeng.utils.bean.FenLeiBean;
 import us.mifeng.utils.utils.OkUtils;
+
 
 /**
  * Created by shido on 2017/6/28.
@@ -36,31 +39,21 @@ import us.mifeng.utils.utils.OkUtils;
  * 这是分类 fragment
  */
 public class BranchFragment extends BaseFragment {
-    private List<String> list2 = new ArrayList<>();
+    private List<FenLeiBean> list2 = new ArrayList<>();
     private List<String> list1 = new ArrayList<>();
-    private String[] str = {
-            "推荐区","夏凉区","家装区","居家","餐厨","配件","服装","洗护","婴童","杂货","饮食","志趣"
-    };
     private ListView mLv;
-    private List<String> list;
-    private TextView mTv;
     private BranchAdapter branchAdapter;
-    private FrameFragment frameFragment;
-    private static  int mPosition;
-    private FragmentManager fm;
-    private ListView rifht_lv;
-    private String url = "http://shop.sdlinwang.com/index.php?m=Api&c=Goods&a=goodsCategoryList";
+    private GridView rifht_lv;
+    private String url = "http://www.quanminlebang.com/api100/shanghu.php";
     private JSONArray result;
     private MyAdapter myAdapter;
-
+    private static final String TAG = "BranchFragment";
 
     @Override
     protected View initView() {
         View inflate = View.inflate(getActivity(), R.layout.branch_fragment, null);
         mLv = (ListView) inflate.findViewById(R.id.mLv);
-        rifht_lv = (ListView) inflate.findViewById(R.id.right_lv);
-        //initReplace();
-        //initEvent();
+        rifht_lv = (GridView) inflate.findViewById(R.id.branch_mGv);
         initUrl();
         initListView();
 
@@ -72,20 +65,18 @@ public class BranchFragment extends BaseFragment {
             @Override
             public void run() {
                 HashMap<String, String> map = new HashMap<>();
-                map.put("","");
+                map.put("bs","fuwuleibie");
                 OkUtils.UploadSJ(url, map, new Callback() {
                     @Override
                     public void onFailure(Call call, IOException e) {
-
                     }
-
                     @Override
                     public void onResponse(Call call, Response response) throws IOException {
                         String string = response.body().string();
                         Message mess = hand.obtainMessage();
                         mess.obj=string;
-                            mess.what=200;
-                            hand.sendMessage(mess);
+                        mess.what=200;
+                        hand.sendMessage(mess);
                     }
                 });
             }
@@ -99,20 +90,27 @@ public class BranchFragment extends BaseFragment {
                 final String json  = (String) msg.obj;
                 try {
                     final JSONObject jo = new JSONObject(json);
-                    String status = jo.getString("status");
-                    if ("1".equals(status)){
-                        result = jo.getJSONArray("result");
+                    String code = jo.getString("code");
+
+                    if ("200".equals(code)){
+                        JSONObject obj = jo.getJSONObject("obj");
+                        result = obj.getJSONArray("leibie");
                         for (int i =0;i<result.length();i++){
                             JSONObject jsonObject = result.getJSONObject(i);
-                            String name = jsonObject.getString("name");
+                            String name = jsonObject.getString("mingcheng");
                             list1.add(name);
                         }
                         JSONObject jsonObject = result.getJSONObject(0);
-                        JSONArray twoCategory = jsonObject.getJSONArray("twoCategory");
+                        JSONArray twoCategory = jsonObject.getJSONArray("leibies");
                         for (int z= 0;z<twoCategory.length();z++){
+                            FenLeiBean fenLeiBean = new FenLeiBean();
                             JSONObject two = twoCategory.getJSONObject(z);
-                            String name1 = two.getString("name");
-                            list2.add(name1);
+                            String name1 = two.getString("mingcheng");
+                            String logo = two.getString("logo");
+                            fenLeiBean.setLogo(logo);
+                            fenLeiBean.setMingcheng(name1);
+                        //TODO 添加图片
+                            list2.add(fenLeiBean);
 
                         }
                             branchAdapter = new BranchAdapter(list2, getActivity());
@@ -135,12 +133,16 @@ public class BranchFragment extends BaseFragment {
                 myAdapter.notifyDataSetChanged();
                 try {
                     JSONObject jsonArray = result.getJSONObject(position);
-                    String name = jsonArray.getString("name");
-                    JSONArray twoCategory = jsonArray.getJSONArray("twoCategory");
-                    for (int z= 0;z<twoCategory.length();z++){
-                        JSONObject two = twoCategory.getJSONObject(z);
-                        String name1 = two.getString("name");
-                        list2.add(name1);
+                    JSONArray leibies = jsonArray.getJSONArray("leibies");
+                    for (int z= 0;z<leibies.length();z++){
+                        JSONObject two = leibies.getJSONObject(z);
+                        FenLeiBean fenLeiBean = new FenLeiBean();
+                        String name1 = two.getString("mingcheng");
+                        String logo = two.getString("logo") ;
+                        Log.e(TAG, "onItemClick: 888888"+logo );
+                        fenLeiBean.setMingcheng(name1);
+                        fenLeiBean.setLogo(logo);
+                        list2.add(fenLeiBean);
 
                     }
                     branchAdapter = new BranchAdapter(list2, getActivity());
@@ -205,56 +207,10 @@ public class BranchFragment extends BaseFragment {
         }
 
     }
-//    private void initReplace() {
-//        frameFragment = new FrameFragment();
-//        fm = getFragmentManager();
-//        FragmentTransaction ft = fm.beginTransaction();
-//        ft.replace(R.id.frame,frameFragment);
-//
-//        //通过bundle传值给fragment
-//        Bundle bundle = new Bundle();
-//        bundle.putString(FrameFragment.TAG,str[mPosition]);
-//        frameFragment.setArguments(bundle);
-//        ft.commit();
-//    }
 
-//    private void initEvent() {
-//        mLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                FragmentTransaction ft = fm.beginTransaction();
-//                if (frameFragment!=null){
-//                    ft.hide(frameFragment);
-//                }
-//               //得到当前位置
-//                mPosition = position;
-//                //及时刷新适配器
-//                branchAdapter.notifyDataSetChanged();
-//                for (int i = 0 ; i<str.length;i++){
-//                    fm = getFragmentManager();
-//                    ft = fm.beginTransaction();
-//                    ft.replace(R.id.frame,frameFragment)
-//                    //通过bundle传值给fragment
-//                    Bundle bundle = new Bundle();
-//                    bundle.putString(FrameFragment.TAG,str[mPosition]);
-//                    frameFragment.setArguments(bundle);
-//                    ft.commit();
-//
-//                }
-//            }
-//        });‘
-
-
-//    }
 
     @Override
     protected void initList() {
-//        list = new ArrayList<>();
-//        for (int i = 0;i<str.length;i++){
-//            list.add(str[i]);
-//        }
-//        branchAdapter = new BranchAdapter(list,getActivity());
-//        mLv.setAdapter(branchAdapter);
     }
 
 

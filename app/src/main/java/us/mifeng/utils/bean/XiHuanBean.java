@@ -6,6 +6,15 @@ package us.mifeng.utils.bean;
 
 public class XiHuanBean {
     private String imgUrl;
+    private String id;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getImgUrl() {
         return imgUrl;
@@ -15,15 +24,15 @@ public class XiHuanBean {
         this.imgUrl = imgUrl;
     }
 
-    private String id;
+    private String jianjie;
     private String title;
 
-    public String getId() {
-        return id;
+    public String getJianjie() {
+        return jianjie;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setJianjie(String id) {
+        this.jianjie = id;
     }
 
     public String getTitle() {

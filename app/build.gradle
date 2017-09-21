@@ -24,6 +24,7 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:support-v4:24.2.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
     compile 'com.airbnb.android:lottie:1.0.1'
@@ -35,4 +36,9 @@ dependencies {
     compile 'com.squareup.okhttp3:okhttp:3.2.0'
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.github.Aspsine:SwipeToLoadLayout:1.0.3'
+    compile 'com.android.support:recyclerview-v7:21.0.0'
+    compile 'com.google.code.gson:gson:2.8.1'
+    compile files('libs/MobCommons-2017.0823.1556.jar')
+    compile 'com.xu.viewpagerflextitle:viewpagerflextitle:1.0.3'
+    compile 'com.facebook.fresco:fresco:1.5.0'
 }

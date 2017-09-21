@@ -13,6 +13,8 @@ import java.util.List;
 
 import us.mifeng.utils.R;
 import us.mifeng.utils.bean.XiHuanBean;
+import us.mifeng.utils.http.WangZhi;
+import us.mifeng.utils.view.GlideRoundTransform;
 
 /**
  * Created by shido on 2017/7/10.
@@ -53,9 +55,13 @@ public class XiHuanAdapter extends BaseAdapter {
         }else {
             vh = (MyViewHorder) convertView.getTag();
         }
-        vh.id.setText(list.get(position).getId());
+        vh.id.setText(list.get(position).getJianjie());
         vh.title.setText(list.get(position).getTitle());
-        Glide.with(context).load(list.get(position).getImgUrl()).into(vh.img);
+        Glide.with(context).load(WangZhi.HOME_DIANPU+list.get(position).
+                getImgUrl()).
+                crossFade().
+                transform(new GlideRoundTransform(context)).
+                into(vh.img);
         return convertView;
     }
     class MyViewHorder{

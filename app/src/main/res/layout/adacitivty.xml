@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:ViewPagerTitle="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <RelativeLayout
+
+                android:id="@+id/ad_rela"
+                android:layout_width="fill_parent"
+                android:layout_marginLeft="0dp"
+                android:layout_height="230dp">
+
+                <ImageView
+                    android:id="@+id/adactivity__ad"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true" />
+
+                <ImageView
+                    android:layout_marginTop="22dp"
+                    android:id="@+id/adactivity_back"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_shop_detail_back_white" />
+
+                <ImageView
+                    android:layout_marginTop="22dp"
+                    android:id="@+id/adactivity_fenxiang"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentRight="true"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_shop_detail_share_white" />
+
+                <ImageView
+                    android:layout_marginTop="22dp"
+                    android:id="@+id/adactivity__shoucang"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_toLeftOf="@id/adactivity_fenxiang"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_shop_detail_uncollect_circle" />
+
+
+            </RelativeLayout>
+            <LinearLayout
+                android:id="@+id/ad_ll"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+                <TextView
+                    android:id="@+id/ad_title"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="16sp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"
+                    />
+                <ImageView
+                    android:padding="2dp"
+                    android:src="@drawable/ic_star_negative"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    />
+                <ImageView
+                    android:padding="2dp"
+                    android:src="@drawable/ic_star_negative"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    />
+                <ImageView
+                    android:padding="2dp"
+                    android:src="@drawable/ic_star_negative"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    />
+                <ImageView
+                    android:padding="2dp"
+                    android:src="@drawable/ic_star_negative"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    />
+                <ImageView
+                    android:padding="2dp"
+                    android:src="@drawable/ic_star_negative"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    />
+            </LinearLayout>
+            <RelativeLayout
+                android:id="@+id/ad_rl"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp">
+
+                <LinearLayout
+                    android:layout_width="300dp"
+                    android:layout_height="30dp"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="营业时间："
+                        />
+                    <TextView
+                        android:id="@+id/ad_yingyekaishi"
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        />
+                    <TextView
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="-"
+                        />
+                    <TextView
+                        android:id="@+id/ad_jieshushijian"
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        />
+                </LinearLayout>
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center_vertical"
+                    android:id="@+id/ad_dizhi"
+
+                    android:layout_alignParentBottom="true"
+                    android:layout_width="300dp"
+                    android:layout_height="30dp" />
+                <ImageView
+                    android:id="@+id/ad_phone"
+                    android:layout_marginRight="20dp"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_phone"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp" />
+            </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#efe7e7"
+                />
+            <xu.viewpagerflextitle.ViewPagerTitle
+                android:id="@+id/pager_title"
+                ViewPagerTitle:background_content_color="@android:color/white"
+                ViewPagerTitle:line_start_color="@android:color/holo_red_dark"
+                ViewPagerTitle:line_end_color="@android:color/white"
+                android:layout_width="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_height="wrap_content"/>
+            <android.support.v4.view.ViewPager
+                android:id="@+id/view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+            </android.support.v4.view.ViewPager>
+        </LinearLayout>
+
+</LinearLayout>
