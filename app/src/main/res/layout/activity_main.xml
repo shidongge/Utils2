@@ -100,7 +100,6 @@
         android:layout_marginTop="22dp"
         ></LinearLayout>
     <ViewStub
-
         android:id="@+id/view_stub"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

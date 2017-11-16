@@ -2,8 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants"
     xmlns:ViewPagerTitle="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -177,13 +182,13 @@
                 android:layout_width="match_parent"
                 android:layout_gravity="center_vertical"
                 android:layout_height="wrap_content"/>
-            <android.support.v4.view.ViewPager
+            <us.mifeng.utils.view.ViewPagerForScrollView
                 android:id="@+id/view_pager"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 >
 
-            </android.support.v4.view.ViewPager>
+            </us.mifeng.utils.view.ViewPagerForScrollView>
         </LinearLayout>
-
+    </ScrollView>
 </LinearLayout>

@@ -132,7 +132,6 @@ public class TuiJianFragment extends Fragment {
                 hand.sendMessage(message);
             }
         });
-
     }
 
     private void initLianWang() {

@@ -1,2 +1,3 @@
-include ':app', ':ceshi', ':erjiliandong', ':rxjavaandretrofit', ':mylrucache'
+include ':app', ':zidingyiview', ':feescodemo', ':mvvmdemo'
+// ':erjiliandong', ':rxjavaandretrofit', ':mylrucache', ':yuanlilrucache', ':anjian', ':quanxian', ':ceshi'
 include ':ViewPagerIndicator'

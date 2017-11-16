@@ -5,10 +5,9 @@
       <module fileurl="file://$PROJECT_DIR$/Utils.iml" filepath="$PROJECT_DIR$/Utils.iml" />
       <module fileurl="file://$PROJECT_DIR$/ViewPagerIndicator/ViewPagerIndicator.iml" filepath="$PROJECT_DIR$/ViewPagerIndicator/ViewPagerIndicator.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ceshi/ceshi.iml" filepath="$PROJECT_DIR$/ceshi/ceshi.iml" />
-      <module fileurl="file://$PROJECT_DIR$/erjiliandong/erjiliandong.iml" filepath="$PROJECT_DIR$/erjiliandong/erjiliandong.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mylrucache/mylrucache.iml" filepath="$PROJECT_DIR$/mylrucache/mylrucache.iml" />
-      <module fileurl="file://$PROJECT_DIR$/rxjavaandretrofit/rxjavaandretrofit.iml" filepath="$PROJECT_DIR$/rxjavaandretrofit/rxjavaandretrofit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/feescodemo/feescodemo.iml" filepath="$PROJECT_DIR$/feescodemo/feescodemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mvvmdemo/mvvmdemo.iml" filepath="$PROJECT_DIR$/mvvmdemo/mvvmdemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zidingyiview/zidingyiview.iml" filepath="$PROJECT_DIR$/zidingyiview/zidingyiview.iml" />
     </modules>
   </component>
 </project>
